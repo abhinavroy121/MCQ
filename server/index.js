@@ -1,13 +1,22 @@
-const express = require('express')
+const express = require("express");
+const connection = require("./db/db.js");
+const app = express();
+const UserRouter = require("./routes/UserRouter");
+// const AdminRouter = require("./routes/admin/AdminRouter");
+app.use(express.json());
 
-const app = express()
-
+app.use("/users", UserRouter);
+// app.use("/admin", AdminRouter);
 
 app.get("/", (req, res) => {
-    res.send("app")
-})
+  res.send("app");
+});
 
-
-app.listen(8000, ()=>{
-     console.log('listening on http://localhost:8000')
-})
+app.listen(8000, async () => {
+  try {
+    await connection;
+    console.log("listening on http://localhost:8000");
+  } catch (err) {
+    console.log(err, "error while connection to server");
+  }
+});
