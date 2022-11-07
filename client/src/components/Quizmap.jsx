@@ -8,12 +8,19 @@ import { singlequestion } from '../Redux/action';
 const Quizmap = () => {
      const [i,seti] = useState(0)
     const [ans,setAns] = useState(false)
+    const [display,setdisplay] = useState(false)
     const quiz  = useSelector(store=> store.quizquestion)
-  
+    
      const handletrue = (e)=>{
           setAns(true)
           console.log(e.difficulty)
      }
+
+     useEffect(()=>{
+        if(i>9){
+            setdisplay(true)
+        }
+     })
   
   return (
     <div className="container">
@@ -42,6 +49,7 @@ const Quizmap = () => {
                    }}> Next</button>
                  </div>: <div key={index}></div>
             ))}
+            <div> <h1 style={{display: display? "block": "none"}}>Test Finished</h1></div>
         </div>
     </div>
   )

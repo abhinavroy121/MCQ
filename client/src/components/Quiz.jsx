@@ -35,7 +35,7 @@ const Quiz = () => {
 
   return (
     <div>
-      <Quizmap/>
+      <Quizmap getquestions={getquestions}/>
     </div>
   )
 }
