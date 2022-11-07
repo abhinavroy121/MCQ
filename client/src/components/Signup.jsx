@@ -21,6 +21,7 @@ const Signup = () => {
 
   return (
     <div>
+      <h1>Sign up</h1>
         <br/>
         <div  style={{display: 'flex', flexDirection: 'column', width:"300px",margin:"auto"}}>
           <br/>
